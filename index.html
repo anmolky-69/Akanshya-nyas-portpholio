@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akanksha - Illustrator & Graphic Designer</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- DESIGN CORE SYSTEM --- */
+        :root {
+            --bg-cream: #FAF6F0;
+            --bg-card: #F3ECE3;
+            --text-dark: #1E2221;
+            --text-muted: #5D6361;
+            --primary-green: #2D4032;
+            --accent-orange: #C97A53;
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-script: 'Sacramento', cursive;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* --- UI ACTIONS & REUSABLES --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+
+        .btn-dark {
+            background-color: var(--primary-green);
+            color: #ffffff;
+        }
+
+        .btn-dark:hover {
+            background-color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border-color: #D1C7BD;
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-dark);
+            color: #ffffff;
+            border-color: var(--text-dark);
+            transform: translateY(-2px);
+        }
+
+        /* --- GLOBAL HEADER NAVIGATION --- */
+        header {
+            padding: 24px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 26px;
+            font-weight: 700;
+        }
+
+        .logo span {
+            color: var(--accent-orange);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 36px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-muted);
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent-orange);
+        }
+
+        /* --- HERO DISPLAY FRAME --- */
+        .hero {
+            padding: 40px 0 80px 0;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .hero-content .subtitle {
+            font-family: var(--font-script);
+            font-size: 38px;
+            color: var(--accent-orange);
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 58px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-bottom: 36px;
+            max-width: 440px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+
+        .social-follow {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-icons a {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: #EFE6DC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-green);
+            color: #ffffff;
+            transform: scale(1.1);
+        }
+
+        .hero-illustration-box {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: linear-gradient(145deg, #EADFCE, #DFD3C1);
+            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+        }
+
+        .hero-illustration-box img {
+            width: 95%;
+            height: 95%;
+            object-fit: contain;
+        }
+
+        /* --- ABOUT & SERVICES INTERFACE --- */
+        .about-services {
+            background-color: var(--bg-card);
+            border-radius: 24px;
+            padding: 64px;
+            margin-bottom: 80px;
+        }
+
+        .about-services-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1.9fr;
+            gap: 64px;
+        }
+
+        .about-block {
+            display: flex;
+            gap: 28px;
+        }
+
+        .about-img-frame {
+            position: relative;
+            width: 140px;
+            height: 190px;
+            flex-shrink: 0;
+            background-color: #CFA78F;
+            border-radius: 100px 100px 20px 20px;
+            overflow: hidden;
+        }
+
+        .about-img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-info h2, .services-block h2 {
+            font-family: var(--font-heading);
+            font-size: 28px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .about-info p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 14px;
+        }
+
+        .signature {
+            font-family: var(--font-script);
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 18px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .service-card {
+            text-align: center;
+            background-color: transparent;
+            padding: 12px 4px;
+        }
+
+        .icon-box {
+            width: 56px;
+            height: 56px;
+            background-color: #E6DCCE;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px auto;
+            font-size: 18px;
+            color: var(--text-dark);
+        }
+
+        .service-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 11px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* --- RECENT WORK WORKSPACE --- */
+        .portfolio {
+            padding-bottom: 80px;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .portfolio-header h2 {
+            font-family: var(--font-heading);
+            font-size: 36px;
+            text-align: center;
+            width: 100%;
+            font-weight: 700;
+        }
+
+        .view-all {
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--text-dark);
+            position: absolute;
+            right: 0;
+            bottom: 4px;
+            border-bottom: 1px solid var(--text-dark);
+            padding-bottom: 2px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .portfolio-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .portfolio-img-container {
+            width: 100%;
+            aspect-ratio: 1 / 1.12;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            background-color: #EAE2D5;
+        }
+
+        .portfolio-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-img-container img {
+            transform: scale(1.04);
+        }
+
+        .portfolio-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .portfolio-meta h3 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+
+        .portfolio-meta p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .arrow-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--text-dark);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        /* --- TESTIMONIAL VIEWBLOCK --- */
+        .testimonial {
+            background-color: var(--primary-green);
+            color: #ffffff;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .testimonial-content {
+            max-width: 760px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial h2 {
+            font-family: var(--font-heading);
+            font-size: 24px;
+            font-weight: 400;
+            margin-bottom: 36px;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+
+        .quote-icon {
+            font-size: 36px;
+            color: var(--accent-orange);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .quote-text {
+            font-size: 16px;
+            line-height: 1.75;
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+
+        .client-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 14px;
+        }
+
+        .client-img {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: #E6DCCE;
+        }
+
+        .client-info {
+            text-align: left;
+        }
+
+        .client-name {
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+        .client-role {
+            font-size: 13px;
+            opacity: 0.65;
+        }
+
+        .stars {
+            color: var(--accent-orange);
+            font-size: 13px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            margin-top: -24px;
+        }
+
+        .testimonial-nav button {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* --- COLLABORATE CAPTURE SYSTEM (CTA) --- */
+        .cta {
+            padding: 80px 0;
+            background-color: #F6EFE5;
+        }
+
+        .cta-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .cta-text h2 {
+            font-family: var(--font-heading);
+            font-size: 38px;
+            line-height: 1.25;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .cta-text p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 12px;
+            width: 50%;
+            max-width: 480px;
+        }
+
+        .cta-form input {
+            flex: 1;
+            padding: 14px 20px;
+            border-radius: 6px;
+            border: 1px solid #D1C7BD;
+            background-color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 14px;
+            outline: none;
+        }
+
+        /* --- SYSTEM FOOTER --- */
+        footer {
+            background-color: var(--bg-cream);
+            padding: 72px 0 24px 0;
+            border-top: 1px solid #EAE2D5;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1.2fr 1.3fr;
+            gap: 40px;
+            margin-bottom: 64px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin: 16px 0;
+            max-width: 260px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            list-style: none;
+        }
+
+        .footer-col a {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-col a:hover {
+            color: var(--text-dark);
+        }
+
+        .footer-col p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+        }
+
+        .footer-newsletter {
+            display: flex;
+            width: 100%;
+        }
+
+        .footer-newsletter input {
+            flex: 1;
+            padding: 12px 14px;
+            border: 1px solid #D1C7BD;
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            background-color: #ffffff;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .footer-newsletter button {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 0 18px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            border-top: 1px solid #EAE2D5;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* --- SCREEN BREAKPOINTS RESPONSIVENESS --- */
+        @media (max-width: 1024px) {
+            .about-services-grid { grid-template-columns: 1fr; gap: 48px; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .hero-illustration-box { order: -1; max-width: 420px; margin: 0 auto; }
+            .cta-box { flex-direction: column; align-items: flex-start; }
+            .cta-form { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">akanksha<span>.</span></div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+                <a href="#" class="btn btn-dark">Let's Talk <i class="fa-solid fa-paper-plane"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <p class="subtitle">Hello, I'm</p>
+                    <h1>Akanksha<br>Illustrator &<br>Graphic Designer</h1>
+                    <p>I create elegant illustrations and thoughtful designs that help brands connect with people organically.</p>
+                    <div class="hero-btns">
+                        <button class="btn btn-dark">View My Work <i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="btn btn-outline">Download Resume <i class="fa-solid fa-download"></i></button>
+                    </div>
+                    <div class="social-follow">
+                        <span>Follow me on</span>
+                        <div class="social-icons">
+                            <a href="#"><i class="fa-brands fa-behance"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-illustration-box">
+                    <img src="pic 1 pp.jpg" alt="Akanksha Illustrator Profile Canvas Art">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="about-services">
+            <div class="about-services-grid">
+                
+                <div class="about-block">
+                    <div class="about-img-frame">
+                        <img src="pic  2pp.jpg" alt="Akanksha Real Life Portrait">
+                    </div>
+                    <div class="about-info">
+                        <h2>About Me</h2>
+                        <p>I'm an Illustrator and Graphic Designer based in India. I love to create custom vector illustrations, logos, and high-end visual identities that make a statement.</p>
+                        <span class="signature">Akanksha</span>
+                        <button class="btn btn-dark" style="padding: 10px 20px; font-size: 13px;">More About Me <i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+
+                <div class="services-block">
+                    <h2>What I Do</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="icon-box"><i class="fa-solid fa-paintbrush"></i></div>
+                            <h3>Illustration</h3>
+                            <p>Custom illustrations designed for digital platforms.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="icon-box"><i class="fa-solid fa-pen-nib"></i></div>
+                            <h3>Logo Design</h3>
+                            <p>Unique branding marks that encapsulate your brand voice.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="icon-box"><i class="fa-solid fa-layer-group"></i></div>
+                            <h3>UI/UX Design</h3>
+                            <p>Clean, interactive blueprints built optimization-first.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="icon-box"><i class="fa-solid fa-tags"></i></div>
+                            <h3>Branding</h3>
+                            <p>Complete asset production structures and guidelines.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <div class="container">
+            <div class="portfolio-header">
+                <h2>My Recent Work</h2>
+                <a href="#" class="view-all">View All Projects <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            <div class="portfolio-grid">
+                
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=400&q=80" alt="Floral Portrait Illustration Mockup">
+                    </div>
+                    <div class="portfolio-meta">
+                        <div>
+                            <h3>Floral Portrait</h3>
+                            <p>Illustration</p>
+                        </div>
+                        <a href="#" class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <img src="pic 4 pp.jpg" alt="Nature Skin Care Bottles Packaging Mockup">
+                    </div>
+                    <div class="portfolio-meta">
+                        <div>
+                            <h3>Nature Skin Care</h3>
+                            <p>Branding</p>
+                        </div>
+                        <a href="#" class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <img src="pic 5 pp.jpg" alt="Cozy Character Reading Book Digital Illustration">
+                    </div>
+                    <div class="portfolio-meta">
+                        <div>
+                            <h3>Cozy Reads</h3>
+                            <p>Digital Illustration</p>
+                        </div>
+                        <a href="#" class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <div class="portfolio-img-container">
+                        <img src="pic 6 pp.jpg" alt="Organic Boutique Minimal Line Art Emblem Design">
+                    </div>
+                    <div class="portfolio-meta">
+                        <div>
+                            <h3>Organic Boutique</h3>
+                            <p>Logo Design</p>
+                        </div>
+                        <a href="#" class="arrow-btn"><i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial">
+        <div class="container">
+            <div class="testimonial-content">
+                <h2>What Clients Say</h2>
+                <span class="quote-icon"><i class="fa-solid fa-quote-left"></i></span>
+                <p class="quote-text">Akanksha is extremely talented and professional. Her illustrations are unique and the communication throughout the timeline structure of our asset release was stellar.</p>
+                <div class="client-profile">
+                    <img class="client-img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Client Avatar">
+                    <div class="client-info">
+                        <div class="client-name">Rohan Mehta</div>
+                        <div class="client-role">Founder, Organic Boutique</div>
+                    </div>
+                </div>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+            </div>
+            <div class="testimonial-nav">
+                <button type="button"><i class="fa-solid fa-arrow-left"></i></button>
+                <button type="button"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <div class="cta-box">
+                <div class="cta-text">
+                    <h2>Let's work together on<br>your next project</h2>
+                    <p>Have a project in mind? Let's create something amazing!</p>
+                </div>
+                <div class="cta-form">
+                    <input type="email" placeholder="Your email address">
+                    <button class="btn btn-dark" style="white-space: nowrap;">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">akanksha<span>.</span></div>
+                    <p>I build custom tailored designs built to amplify visual identity footprints.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>hello@akanksha.com</li>
+                        <li>+91 12345 67890</li>
+                        <li>India</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to catch standard release announcements.</p>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="button"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Akanksha. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
